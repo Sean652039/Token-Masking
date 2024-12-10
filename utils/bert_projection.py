@@ -1,3 +1,4 @@
+import os
 import torch
 from transformers import AutoTokenizer, AutoModelForTokenClassification
 import numpy as np
@@ -6,12 +7,12 @@ from mpl_toolkits.mplot3d import Axes3D
 from CS_Dataset import CSDataset
 
 
-def extract_token_embeddings(model, dataset, device):
+def extract_logits(model, dataset, device):
     """
-    Extract token-level embeddings for each class, excluding -100 labels
+    Extract logits for each class, excluding -100 labels
     """
     model.eval()
-    class_embeddings = {0: [], 1: [], 2: []}
+    class_logits = {0: [], 1: [], 2: []}
 
     dataloader = torch.utils.data.DataLoader(dataset, batch_size=32, shuffle=False)
 
@@ -21,90 +22,185 @@ def extract_token_embeddings(model, dataset, device):
             attention_mask = batch['attention_mask'].to(device)
             labels = batch['labels'].cpu().numpy()
 
-            # Get BERT's last hidden state
-            outputs = model(inputs, attention_mask=attention_mask, output_hidden_states=True)
-
-            # Last hidden layer's embeddings
-            hidden_states = outputs.hidden_states[-1].cpu().numpy()
+            # Get model's logits
+            outputs = model(inputs, attention_mask=attention_mask)
+            logits = outputs.logits.cpu().numpy()
 
             # Process each sequence in the batch
-            for seq_embedding, seq_labels in zip(hidden_states, labels):
+            for seq_logits, seq_labels in zip(logits, labels):
                 # Find tokens that are not -100
                 valid_mask = (seq_labels != -100)
                 valid_labels = seq_labels[valid_mask]
-                valid_embeddings = seq_embedding[valid_mask]
+                valid_seq_logits = seq_logits[valid_mask]
 
-                # Group embeddings by their labels
+                # Group logits by their labels
                 for label in [0, 1, 2]:
                     label_mask = (valid_labels == label)
                     if np.any(label_mask):
-                        # Average embedding for tokens with this label
-                        label_embeddings = valid_embeddings[label_mask]
-                        class_embeddings[label].append(label_embeddings.mean(axis=0))
+                        # Average logits for tokens with this label
+                        label_logits = valid_seq_logits[label_mask]
+                        class_logits[label].append(label_logits.mean(axis=0))
 
     # Convert to numpy arrays
-    for label in class_embeddings:
-        class_embeddings[label] = np.array(class_embeddings[label])
+    for label in class_logits:
+        class_logits[label] = np.array(class_logits[label])
 
-    return class_embeddings
+    return class_logits
 
 
-def plot_class_embeddings(class_embeddings, id2label):
+def compute_axis_limits(all_models_logits):
     """
-    Plot 3D scatter of class embeddings
+    Compute consistent axis limits for all subplots
     """
-    plt.figure(figsize=(12, 10))
-    ax = plt.axes(projection='3d')
+    all_values = []
+    for model_logits in all_models_logits.values():
+        for class_logits in model_logits.values():
+            all_values.extend(class_logits.flatten())
 
-    # Color map for three classes
-    colors = ['red', 'green', 'blue']
+    # Add some padding
+    min_val = np.min(all_values)
+    max_val = np.max(all_values)
+    padding = (max_val - min_val) * 0.1
 
-    for label, color in zip(range(3), colors):
-        # If embeddings exist for this class
-        if len(class_embeddings[label]) > 0:
-            # Take first 3 dimensions if more than 3
-            embeddings = class_embeddings[label][:, :3]
+    return min_val - padding, max_val + padding
 
-            ax.scatter(
-                embeddings[:, 0],
-                embeddings[:, 1],
-                embeddings[:, 2],
-                c=color,
-                label=id2label[label],
-                alpha=0.7
-            )
 
-    ax.set_xlabel('Dimension 1')
-    ax.set_ylabel('Dimension 2')
-    ax.set_zlabel('Dimension 3')
-    ax.set_title('Token Embeddings by Class')
-    plt.legend()
+def plot_multi_model_logits(all_models_logits, id2label):
+    """
+    Plot logits distribution for multiple models from different perspectives
+    """
+    # Compute consistent axis limits
+    x_lim = compute_axis_limits(all_models_logits)
 
-    plt.tight_layout()
-    plt.savefig('class_embeddings_3d0.0.png')
-    plt.close()  # 关闭图形以节省内存
+    # 3D Plot
+    fig_3d = plt.figure(figsize=(15, 10), dpi=300)
+    plt.subplots_adjust(wspace=0.25, hspace=0.1)
+
+    for col, (mask_prob, class_logits) in enumerate(all_models_logits.items()):
+        ax = fig_3d.add_subplot(2, 3, col + 1, projection='3d')
+
+        # Publication-friendly color palette
+        colors = ['#1F77B4', '#FF7F0E', '#2CA02C']
+        markers = ['o', '^', 's']
+
+        for label_idx, label_name in enumerate(range(3)):
+            if len(class_logits[label_name]) > 0:
+                logits = class_logits[label_name]
+
+                ax.scatter(
+                    logits[:, 0], logits[:, 1], logits[:, 2],
+                    c=colors[label_idx],
+                    marker=markers[label_idx],
+                    label=id2label[label_idx],
+                    alpha=0.7,
+                    edgecolors='black',
+                    linewidths=0.5,
+                    s=30
+                )
+
+        # Set consistent axis limits
+        ax.set_xlim(x_lim)
+        ax.set_ylim(x_lim)
+        ax.set_zlim(x_lim)
+
+        ax.set_xlabel('Logits D0', fontsize=8, fontweight='bold')
+        ax.set_ylabel('Logits D1', fontsize=8, fontweight='bold')
+        ax.set_zlabel('Logits D2', fontsize=8, fontweight='bold')
+        ax.set_title(f'Mask Out Probability: {mask_prob:.2f}', fontsize=10, fontweight='bold')
+
+        ax.grid(True, linestyle='--', linewidth=0.5, color='gray', alpha=0.5)
+        ax.legend(title='Classes', loc='best', title_fontsize=8, fontsize=7)
+
+    plt.suptitle('3D Logits Distribution Across Different Mask Probabilities', fontsize=16, fontweight='bold')
+    plt.savefig('../plots/logits_distribution_3d.png', bbox_inches='tight')
+    plt.close()
+
+    # 2D Plots
+    perspectives = [
+        {'dims': [0, 1], 'title': 'Dim 0 vs Dim 1'},
+        {'dims': [1, 2], 'title': 'Dim 1 vs Dim 2'}
+    ]
+
+    for perspective in perspectives:
+        fig_2d = plt.figure(figsize=(15, 10), dpi=300)
+        plt.subplots_adjust(wspace=0.1, hspace=0.2)
+
+        for col, (mask_prob, class_logits) in enumerate(all_models_logits.items()):
+            ax = fig_2d.add_subplot(2, 3, col + 1)
+
+            # Publication-friendly color palette
+            colors = ['#1F77B4', '#FF7F0E', '#2CA02C']
+            markers = ['o', '^', 's']
+
+            x_dim, y_dim = perspective['dims']
+
+            for label_idx, label_name in enumerate(range(3)):
+                if len(class_logits[label_name]) > 0:
+                    logits = class_logits[label_name]
+
+                    ax.scatter(
+                        logits[:, x_dim], logits[:, y_dim],
+                        c=colors[label_idx],
+                        marker=markers[label_idx],
+                        label=id2label[label_idx],
+                        alpha=0.7,
+                        edgecolors='black',
+                        linewidths=0.5,
+                        s=30
+                    )
+
+            # Set consistent axis limits
+            ax.set_xlim(x_lim)
+            ax.set_ylim(x_lim)
+
+            ax.set_xlabel(f'Logits D{x_dim}', fontsize=8, fontweight='bold')
+            ax.set_ylabel(f'Logits D{y_dim}', fontsize=8, fontweight='bold')
+            ax.set_title(f'Mask Out Probability: {mask_prob:.2f}', fontsize=10, fontweight='bold')
+
+            ax.grid(True, linestyle='--', linewidth=0.5, color='gray', alpha=0.5)
+            ax.legend(title='Classes', loc='best', title_fontsize=8, fontsize=7)
+
+        plt.suptitle(f'2D Logits Distribution: {perspective["title"]} Across Different Mask Probabilities', fontsize=16,
+                     fontweight='bold')
+        plt.savefig(f'../plots/logits_distribution_{x_dim}_{y_dim}.png', bbox_inches='tight')
+        plt.close()
 
 
 def main():
     # Configuration
-    model_path = "../outputs/20241205_200855/best_model"  # 替换为你最新的模型路径
+    outputs_dir = "../outputs"
     test_file = '../lid_spaeng/dev.conll'
 
     # Device setup
     device = torch.device("cuda" if torch.cuda.is_available() else "mps")
 
-    # Load model and tokenizer
-    model = AutoModelForTokenClassification.from_pretrained(model_path).to(device)
-    tokenizer = AutoTokenizer.from_pretrained(model_path)
+    # Collect all models
+    all_models_logits = {}
 
-    # Load test dataset
-    test_dataset = CSDataset(test_file, tokenizer, mask_out_prob=0)
+    # Sort model directories to ensure consistent order
+    model_dirs = sorted([d for d in os.listdir(outputs_dir) if os.path.isdir(os.path.join(outputs_dir, d))])
 
-    # Extract embeddings
-    class_embeddings = extract_token_embeddings(model, test_dataset, device)
+    mask_prob = 0.0
+    for model_dir in model_dirs:
+        model_path = os.path.join(outputs_dir, model_dir, "best_model")
 
-    # Plot embeddings
-    plot_class_embeddings(class_embeddings, test_dataset.id2label)
+        # Load model and tokenizer
+        model = AutoModelForTokenClassification.from_pretrained(model_path).to(device)
+        tokenizer = AutoTokenizer.from_pretrained(model_path)
+
+        # Load test dataset with current mask probability
+        test_dataset = CSDataset(test_file, tokenizer, mask_out_prob=0)
+
+        # Extract logits
+        class_logits = extract_logits(model, test_dataset, device)
+
+        # Store logits with mask probability as key
+        all_models_logits[mask_prob] = class_logits
+
+        mask_prob += 0.1
+
+    # Plot logits for all models
+    plot_multi_model_logits(all_models_logits, test_dataset.id2label)
 
 
 if __name__ == "__main__":

@@ -84,15 +84,15 @@ def plot_f1_metrics(best_metrics, output_dir):
     os.makedirs(output_dir, exist_ok=True)
 
     plt.rcParams.update({
-        'font.family': 'serif',  # 使用衬线字体
-        'font.serif': ['Times New Roman'],  # Times New Roman 字体
-        'axes.titlesize': 14,  # 标题大小
-        'axes.labelsize': 12,  # 坐标轴标签大小
-        'xtick.labelsize': 10,  # x轴标签大小
-        'ytick.labelsize': 10,  # y轴标签大小
-        'legend.fontsize': 10,  # 图例字体大小
-        'axes.linewidth': 1.5,  # 坐标轴线宽
-        'grid.alpha': 0.3  # 网格透明度
+        'font.family': 'serif',
+        'font.serif': ['Times New Roman'],
+        'axes.titlesize': 14,
+        'axes.labelsize': 12,
+        'xtick.labelsize': 10,
+        'ytick.labelsize': 10,
+        'legend.fontsize': 10,
+        'axes.linewidth': 1.5,
+        'grid.alpha': 0.3
     })
 
     plt.figure(figsize=(8, 6))
@@ -137,15 +137,15 @@ def plot_individual_metrics(best_metrics, output_dir):
     os.makedirs(output_dir, exist_ok=True)
 
     plt.rcParams.update({
-        'font.family': 'serif',  # 使用衬线字体
-        'font.serif': ['Times New Roman'],  # Times New Roman 字体
-        'axes.titlesize': 14,  # 标题大小
-        'axes.labelsize': 12,  # 坐标轴标签大小
-        'xtick.labelsize': 10,  # x轴标签大小
-        'ytick.labelsize': 10,  # y轴标签大小
-        'legend.fontsize': 10,  # 图例字体大小
-        'axes.linewidth': 1.5,  # 坐标轴线宽
-        'grid.alpha': 0.3  # 网格透明度
+        'font.family': 'serif',
+        'font.serif': ['Times New Roman'],
+        'axes.titlesize': 14,
+        'axes.labelsize': 12,
+        'xtick.labelsize': 10,
+        'ytick.labelsize': 10,
+        'legend.fontsize': 10,
+        'axes.linewidth': 1.5,
+        'grid.alpha': 0.3
     })
 
     for metric in metrics:
