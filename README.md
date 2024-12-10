@@ -39,7 +39,7 @@ python train.py
 Train the model on the English-Spanish with masking out and test on the English-Hindi.
 
 ## Results
-![Loss](plot/training_curves.png)
+![Loss](plots/training_curves.png)
 
 - Mask Out Prob = 0
 
@@ -58,7 +58,7 @@ Train the model on the English-Spanish with masking out and test on the English-
 ## Issue
 
 ### 1. Only calculated the weights depend on the training data.
-![label_distribution](plot/label_distribution.png)
+![label_distribution](plots/label_distribution.png)
 
 ### 
 
