@@ -16,20 +16,10 @@ class CSDataset(Dataset):
 
         self.sentences, self.labels, all_labels = self._read_conll_file(file_path)
 
-        # label2id = {label: idx for idx, label in enumerate(sorted(set(all_labels)))}
-        # # sort by label name
-        # self.label2id = dict(sorted(label2id.items()))
-        # self.id2label = {idx: label for label, idx in self.label2id.items()}
         self.label2id = {"lang1": 0, "lang2": 1, "other": 2}
         self.id2label = {0: "lang1", 1: "lang2", 2: "other"}
 
         self.encoded_data = self._preprocess_data()
-
-        # # Set up logging
-        # self.logger = logging.getLogger(__name__)
-
-        # hint: cache
-        # self.cache_dir = cache_dir
 
     def _read_conll_file(self, file_path: str) -> tuple[List[List[str]], List[List[str]], List[str]]:
         """
@@ -69,7 +59,6 @@ class CSDataset(Dataset):
                 sentences.append(current_sentence)
                 labels.append(current_labels)
 
-        # self.logger.info(f"Read {len(sentences)} sentences from {file_path}")
         return sentences, labels, list(all_labels)
 
     def _preprocess_data(self) -> List[Dict]:
@@ -79,6 +68,7 @@ class CSDataset(Dataset):
         encoded_data = []
 
         for sentence_tokens, sentence_labels in zip(self.sentences, self.labels):
+            # 处理Qwen tokenizer的特殊情况
             encoding = self.tokenizer(
                 sentence_tokens,
                 is_split_into_words=True,
@@ -89,7 +79,15 @@ class CSDataset(Dataset):
             )
 
             labels = []
-            word_ids = encoding.word_ids()
+
+            # Get word_ids (index mapping token to original word)
+            # Note: Some tokenizers may not have a word_ids method, so you need to implement the mapping logic yourself.
+            try:
+                word_ids = encoding.word_ids()
+            except AttributeError:
+                # If the tokenizer does not have a word_ids method, it needs to be mapped manually
+                word_ids = self._map_tokens_to_words(encoding, sentence_tokens)
+
             previous_word_idx = None
 
             for word_idx in word_ids:
@@ -110,6 +108,43 @@ class CSDataset(Dataset):
 
         return encoded_data
 
+    def _map_tokens_to_words(self, encoding, sentence_tokens):
+        """
+        Manually mapping token to index of original word
+        This is an alternative for when the tokenizer doesn't have a word_ids method
+        """
+        word_ids = []
+        token_text = self.tokenizer.convert_ids_to_tokens(encoding['input_ids'][0])
+
+        word_idx = 0
+        current_word = ""
+
+        for token in token_text:
+            # Special token handling
+            if token in [self.tokenizer.cls_token, self.tokenizer.sep_token,
+                         self.tokenizer.pad_token, self.tokenizer.mask_token]:
+                word_ids.append(None)
+                continue
+
+            # Remove ## prefixes (if any, e.g. subwords of BERT)
+            if token.startswith("##"):
+                token = token[2:]
+
+            # For Qwen, different subword prefixes may need to be handled
+            # Here it needs to be adapted to the situation
+
+            current_word += token.replace("▁", "")  # Remove possible space markers (if any)
+
+            if word_idx < len(sentence_tokens) and current_word in sentence_tokens[word_idx]:
+                word_ids.append(word_idx)
+                if current_word == sentence_tokens[word_idx]:
+                    word_idx += 1
+                    current_word = ""
+            else:
+                word_ids.append(None)  # If no words match
+
+        return word_ids
+
     def __len__(self):
         return len(self.encoded_data)
 
@@ -119,11 +154,32 @@ class CSDataset(Dataset):
 
         # Apply [MASK] with probability `mask_out_prob`
         if self.mask_out_prob > 0:
+            # Make sure mask_token_id is a valid tensor or int that matches input_ids type
+            mask_token_id = self.tokenizer.mask_token_id if hasattr(self.tokenizer, 'mask_token_id') else None
+
+            # If no mask token is found, use the UNK token instead
+            if mask_token_id is None:
+                if hasattr(self.tokenizer, 'unk_token_id') and self.tokenizer.unk_token_id is not None:
+                    mask_token_id = self.tokenizer.unk_token_id
+                else:
+                    # If no UNK token either, use a common token as fallback
+                    mask_token_id = 0  # Often 0 is a safe choice for special tokens
+
+            # Convert mask_token_id to a tensor with the same device as input_ids if needed
+            if not isinstance(mask_token_id, torch.Tensor):
+                mask_token_id = torch.tensor(mask_token_id, device=input_ids.device, dtype=input_ids.dtype)
+
+            # Special tokens that shouldn't be masked
+            special_tokens = set()
+            for token_name in ['bos_token_id', 'eos_token_id', 'cls_token_id', 'sep_token_id', 'pad_token_id']:
+                if hasattr(self.tokenizer, token_name):
+                    token_id = getattr(self.tokenizer, token_name)
+                    if token_id is not None:
+                        special_tokens.add(token_id)
+
             for i in range(len(input_ids)):
-                if input_ids[i] != self.tokenizer.cls_token_id and \
-                        input_ids[i] != self.tokenizer.sep_token_id and \
-                        torch.rand(1).item() < self.mask_out_prob:
-                    input_ids[i] = self.tokenizer.mask_token_id  # Replace with [MASK] token ID
+                if input_ids[i].item() not in special_tokens and torch.rand(1).item() < self.mask_out_prob:
+                    input_ids[i] = mask_token_id
 
         return {
             'input_ids': input_ids,
@@ -164,4 +220,3 @@ class CSDataset(Dataset):
             'label_distribution': label_dist,
             'total_tokens': sum(seq_lengths)
         }
-

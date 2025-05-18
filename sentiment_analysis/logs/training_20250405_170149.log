@@ -1,0 +1,159 @@
+2025-04-05 17:01:57,701 [INFO] Starting training with mask probability: 0.1
+2025-04-05 17:02:25,943 [INFO] Epoch 1/2000: Train Loss = 0.7598, Dev Loss = 0.7502, Dev F1 Macro = 0.2767, Dev F1 Weighted = 0.3554, Dev Precision Macro = 0.2806, Dev Recall Macro = 0.3333, Dev Accuracy = 0.3808
+2025-04-05 17:02:29,044 [INFO] Saved new best model with F1 Macro: 0.2767
+2025-04-05 17:02:57,097 [INFO] Epoch 2/2000: Train Loss = 0.7591, Dev Loss = 0.7500, Dev F1 Macro = 0.2817, Dev F1 Weighted = 0.3637, Dev Precision Macro = 0.2829, Dev Recall Macro = 0.3362, Dev Accuracy = 0.3884
+2025-04-05 17:03:00,109 [INFO] Saved new best model with F1 Macro: 0.2817
+2025-04-05 17:03:28,314 [INFO] Epoch 3/2000: Train Loss = 0.7589, Dev Loss = 0.7497, Dev F1 Macro = 0.2845, Dev F1 Weighted = 0.3694, Dev Precision Macro = 0.2827, Dev Recall Macro = 0.3362, Dev Accuracy = 0.3932
+2025-04-05 17:03:31,655 [INFO] Saved new best model with F1 Macro: 0.2845
+2025-04-05 17:03:59,734 [INFO] Epoch 4/2000: Train Loss = 0.7588, Dev Loss = 0.7493, Dev F1 Macro = 0.2916, Dev F1 Weighted = 0.3818, Dev Precision Macro = 0.2850, Dev Recall Macro = 0.3394, Dev Accuracy = 0.4051
+2025-04-05 17:04:02,511 [INFO] Saved new best model with F1 Macro: 0.2916
+2025-04-05 17:04:30,579 [INFO] Epoch 5/2000: Train Loss = 0.7580, Dev Loss = 0.7488, Dev F1 Macro = 0.2993, Dev F1 Weighted = 0.3965, Dev Precision Macro = 0.2865, Dev Recall Macro = 0.3419, Dev Accuracy = 0.4201
+2025-04-05 17:04:33,202 [INFO] Saved new best model with F1 Macro: 0.2993
+2025-04-05 17:05:01,298 [INFO] Epoch 6/2000: Train Loss = 0.7576, Dev Loss = 0.7482, Dev F1 Macro = 0.3001, Dev F1 Weighted = 0.4046, Dev Precision Macro = 0.2824, Dev Recall Macro = 0.3360, Dev Accuracy = 0.4293
+2025-04-05 17:05:03,972 [INFO] Saved new best model with F1 Macro: 0.3001
+2025-04-05 17:05:32,095 [INFO] Epoch 7/2000: Train Loss = 0.7572, Dev Loss = 0.7475, Dev F1 Macro = 0.3051, Dev F1 Weighted = 0.4155, Dev Precision Macro = 0.2837, Dev Recall Macro = 0.3383, Dev Accuracy = 0.4438
+2025-04-05 17:05:35,001 [INFO] Saved new best model with F1 Macro: 0.3051
+2025-04-05 17:06:03,154 [INFO] Epoch 8/2000: Train Loss = 0.7566, Dev Loss = 0.7467, Dev F1 Macro = 0.3107, Dev F1 Weighted = 0.4275, Dev Precision Macro = 0.2862, Dev Recall Macro = 0.3421, Dev Accuracy = 0.4621
+2025-04-05 17:06:05,942 [INFO] Saved new best model with F1 Macro: 0.3107
+2025-04-05 17:06:34,080 [INFO] Epoch 9/2000: Train Loss = 0.7557, Dev Loss = 0.7458, Dev F1 Macro = 0.3105, Dev F1 Weighted = 0.4344, Dev Precision Macro = 0.2851, Dev Recall Macro = 0.3410, Dev Accuracy = 0.4788
+2025-04-05 17:07:02,136 [INFO] Epoch 10/2000: Train Loss = 0.7550, Dev Loss = 0.7449, Dev F1 Macro = 0.3108, Dev F1 Weighted = 0.4426, Dev Precision Macro = 0.2874, Dev Recall Macro = 0.3436, Dev Accuracy = 0.5003
+2025-04-05 17:07:05,413 [INFO] Saved new best model with F1 Macro: 0.3108
+2025-04-05 17:07:33,566 [INFO] Epoch 11/2000: Train Loss = 0.7542, Dev Loss = 0.7439, Dev F1 Macro = 0.3055, Dev F1 Weighted = 0.4423, Dev Precision Macro = 0.2860, Dev Recall Macro = 0.3419, Dev Accuracy = 0.5116
+2025-04-05 17:08:01,608 [INFO] Epoch 12/2000: Train Loss = 0.7533, Dev Loss = 0.7428, Dev F1 Macro = 0.3052, Dev F1 Weighted = 0.4470, Dev Precision Macro = 0.2932, Dev Recall Macro = 0.3467, Dev Accuracy = 0.5293
+2025-04-05 17:08:29,705 [INFO] Epoch 13/2000: Train Loss = 0.7526, Dev Loss = 0.7417, Dev F1 Macro = 0.2996, Dev F1 Weighted = 0.4442, Dev Precision Macro = 0.2958, Dev Recall Macro = 0.3460, Dev Accuracy = 0.5368
+2025-04-05 17:08:57,879 [INFO] Epoch 14/2000: Train Loss = 0.7518, Dev Loss = 0.7405, Dev F1 Macro = 0.2920, Dev F1 Weighted = 0.4391, Dev Precision Macro = 0.2968, Dev Recall Macro = 0.3441, Dev Accuracy = 0.5417
+2025-04-05 17:09:25,907 [INFO] Epoch 15/2000: Train Loss = 0.7507, Dev Loss = 0.7393, Dev F1 Macro = 0.2836, Dev F1 Weighted = 0.4341, Dev Precision Macro = 0.2992, Dev Recall Macro = 0.3431, Dev Accuracy = 0.5481
+2025-04-05 17:09:53,988 [INFO] Epoch 16/2000: Train Loss = 0.7500, Dev Loss = 0.7381, Dev F1 Macro = 0.2761, Dev F1 Weighted = 0.4286, Dev Precision Macro = 0.2949, Dev Recall Macro = 0.3408, Dev Accuracy = 0.5498
+2025-04-05 17:10:22,081 [INFO] Epoch 17/2000: Train Loss = 0.7489, Dev Loss = 0.7368, Dev F1 Macro = 0.2734, Dev F1 Weighted = 0.4279, Dev Precision Macro = 0.3100, Dev Recall Macro = 0.3430, Dev Accuracy = 0.5568
+2025-04-05 17:10:50,109 [INFO] Epoch 18/2000: Train Loss = 0.7474, Dev Loss = 0.7355, Dev F1 Macro = 0.2697, Dev F1 Weighted = 0.4247, Dev Precision Macro = 0.3177, Dev Recall Macro = 0.3421, Dev Accuracy = 0.5573
+2025-04-05 17:11:18,170 [INFO] Epoch 19/2000: Train Loss = 0.7466, Dev Loss = 0.7341, Dev F1 Macro = 0.2633, Dev F1 Weighted = 0.4201, Dev Precision Macro = 0.3176, Dev Recall Macro = 0.3408, Dev Accuracy = 0.5589
+2025-04-05 17:11:46,239 [INFO] Epoch 20/2000: Train Loss = 0.7455, Dev Loss = 0.7326, Dev F1 Macro = 0.2581, Dev F1 Weighted = 0.4159, Dev Precision Macro = 0.3118, Dev Recall Macro = 0.3391, Dev Accuracy = 0.5589
+2025-04-05 17:12:14,291 [INFO] Epoch 21/2000: Train Loss = 0.7443, Dev Loss = 0.7311, Dev F1 Macro = 0.2546, Dev F1 Weighted = 0.4129, Dev Precision Macro = 0.3078, Dev Recall Macro = 0.3379, Dev Accuracy = 0.5584
+2025-04-05 17:12:42,361 [INFO] Epoch 22/2000: Train Loss = 0.7429, Dev Loss = 0.7295, Dev F1 Macro = 0.2535, Dev F1 Weighted = 0.4121, Dev Precision Macro = 0.3050, Dev Recall Macro = 0.3375, Dev Accuracy = 0.5584
+2025-04-05 17:13:10,408 [INFO] Epoch 23/2000: Train Loss = 0.7417, Dev Loss = 0.7278, Dev F1 Macro = 0.2540, Dev F1 Weighted = 0.4129, Dev Precision Macro = 0.3167, Dev Recall Macro = 0.3385, Dev Accuracy = 0.5600
+2025-04-05 17:13:38,450 [INFO] Epoch 24/2000: Train Loss = 0.7407, Dev Loss = 0.7260, Dev F1 Macro = 0.2541, Dev F1 Weighted = 0.4130, Dev Precision Macro = 0.3127, Dev Recall Macro = 0.3385, Dev Accuracy = 0.5600
+2025-04-05 17:14:06,627 [INFO] Epoch 25/2000: Train Loss = 0.7391, Dev Loss = 0.7240, Dev F1 Macro = 0.2528, Dev F1 Weighted = 0.4119, Dev Precision Macro = 0.3059, Dev Recall Macro = 0.3379, Dev Accuracy = 0.5594
+2025-04-05 17:14:34,625 [INFO] Epoch 26/2000: Train Loss = 0.7375, Dev Loss = 0.7218, Dev F1 Macro = 0.2528, Dev F1 Weighted = 0.4119, Dev Precision Macro = 0.3059, Dev Recall Macro = 0.3379, Dev Accuracy = 0.5594
+2025-04-05 17:15:02,701 [INFO] Epoch 27/2000: Train Loss = 0.7355, Dev Loss = 0.7197, Dev F1 Macro = 0.2539, Dev F1 Weighted = 0.4127, Dev Precision Macro = 0.3089, Dev Recall Macro = 0.3382, Dev Accuracy = 0.5594
+2025-04-05 17:15:30,785 [INFO] Epoch 28/2000: Train Loss = 0.7336, Dev Loss = 0.7172, Dev F1 Macro = 0.2566, Dev F1 Weighted = 0.4153, Dev Precision Macro = 0.3110, Dev Recall Macro = 0.3395, Dev Accuracy = 0.5605
+2025-04-05 17:15:58,845 [INFO] Epoch 29/2000: Train Loss = 0.7325, Dev Loss = 0.7149, Dev F1 Macro = 0.2616, Dev F1 Weighted = 0.4198, Dev Precision Macro = 0.3222, Dev Recall Macro = 0.3417, Dev Accuracy = 0.5621
+2025-04-05 17:16:26,872 [INFO] Epoch 30/2000: Train Loss = 0.7297, Dev Loss = 0.7125, Dev F1 Macro = 0.2660, Dev F1 Weighted = 0.4227, Dev Precision Macro = 0.4390, Dev Recall Macro = 0.3435, Dev Accuracy = 0.5627
+2025-04-05 17:16:54,913 [INFO] Epoch 31/2000: Train Loss = 0.7280, Dev Loss = 0.7102, Dev F1 Macro = 0.2689, Dev F1 Weighted = 0.4250, Dev Precision Macro = 0.4094, Dev Recall Macro = 0.3441, Dev Accuracy = 0.5621
+2025-04-05 17:17:22,960 [INFO] Epoch 32/2000: Train Loss = 0.7256, Dev Loss = 0.7080, Dev F1 Macro = 0.2715, Dev F1 Weighted = 0.4269, Dev Precision Macro = 0.3836, Dev Recall Macro = 0.3441, Dev Accuracy = 0.5605
+2025-04-05 17:17:50,990 [INFO] Epoch 33/2000: Train Loss = 0.7233, Dev Loss = 0.7058, Dev F1 Macro = 0.2732, Dev F1 Weighted = 0.4284, Dev Precision Macro = 0.3587, Dev Recall Macro = 0.3441, Dev Accuracy = 0.5594
+2025-04-05 17:18:19,018 [INFO] Epoch 34/2000: Train Loss = 0.7218, Dev Loss = 0.7037, Dev F1 Macro = 0.2804, Dev F1 Weighted = 0.4315, Dev Precision Macro = 0.4181, Dev Recall Macro = 0.3469, Dev Accuracy = 0.5594
+2025-04-05 17:18:47,054 [INFO] Epoch 35/2000: Train Loss = 0.7192, Dev Loss = 0.7016, Dev F1 Macro = 0.2955, Dev F1 Weighted = 0.4409, Dev Precision Macro = 0.4513, Dev Recall Macro = 0.3536, Dev Accuracy = 0.5616
+2025-04-05 17:19:15,234 [INFO] Epoch 36/2000: Train Loss = 0.7173, Dev Loss = 0.6997, Dev F1 Macro = 0.2998, Dev F1 Weighted = 0.4434, Dev Precision Macro = 0.4329, Dev Recall Macro = 0.3552, Dev Accuracy = 0.5611
+2025-04-05 17:19:43,213 [INFO] Epoch 37/2000: Train Loss = 0.7153, Dev Loss = 0.6979, Dev F1 Macro = 0.3099, Dev F1 Weighted = 0.4485, Dev Precision Macro = 0.4368, Dev Recall Macro = 0.3594, Dev Accuracy = 0.5605
+2025-04-05 17:20:11,280 [INFO] Epoch 38/2000: Train Loss = 0.7133, Dev Loss = 0.6962, Dev F1 Macro = 0.3175, Dev F1 Weighted = 0.4510, Dev Precision Macro = 0.4341, Dev Recall Macro = 0.3632, Dev Accuracy = 0.5594
+2025-04-05 17:20:14,162 [INFO] Saved new best model with F1 Macro: 0.3175
+2025-04-05 17:20:42,310 [INFO] Epoch 39/2000: Train Loss = 0.7115, Dev Loss = 0.6946, Dev F1 Macro = 0.3331, Dev F1 Weighted = 0.4599, Dev Precision Macro = 0.4470, Dev Recall Macro = 0.3731, Dev Accuracy = 0.5632
+2025-04-05 17:20:44,975 [INFO] Saved new best model with F1 Macro: 0.3331
+2025-04-05 17:21:13,152 [INFO] Epoch 40/2000: Train Loss = 0.7105, Dev Loss = 0.6931, Dev F1 Macro = 0.3495, Dev F1 Weighted = 0.4684, Dev Precision Macro = 0.4751, Dev Recall Macro = 0.3857, Dev Accuracy = 0.5686
+2025-04-05 17:21:16,096 [INFO] Saved new best model with F1 Macro: 0.3495
+2025-04-05 17:21:44,202 [INFO] Epoch 41/2000: Train Loss = 0.7093, Dev Loss = 0.6918, Dev F1 Macro = 0.3534, Dev F1 Weighted = 0.4696, Dev Precision Macro = 0.4667, Dev Recall Macro = 0.3875, Dev Accuracy = 0.5659
+2025-04-05 17:21:47,499 [INFO] Saved new best model with F1 Macro: 0.3534
+2025-04-05 17:22:15,700 [INFO] Epoch 42/2000: Train Loss = 0.7082, Dev Loss = 0.6903, Dev F1 Macro = 0.3620, Dev F1 Weighted = 0.4748, Dev Precision Macro = 0.4664, Dev Recall Macro = 0.3931, Dev Accuracy = 0.5659
+2025-04-05 17:22:18,686 [INFO] Saved new best model with F1 Macro: 0.3620
+2025-04-05 17:22:46,833 [INFO] Epoch 43/2000: Train Loss = 0.7067, Dev Loss = 0.6893, Dev F1 Macro = 0.3725, Dev F1 Weighted = 0.4792, Dev Precision Macro = 0.4664, Dev Recall Macro = 0.4021, Dev Accuracy = 0.5659
+2025-04-05 17:22:50,018 [INFO] Saved new best model with F1 Macro: 0.3725
+2025-04-05 17:23:18,117 [INFO] Epoch 44/2000: Train Loss = 0.7045, Dev Loss = 0.6881, Dev F1 Macro = 0.3750, Dev F1 Weighted = 0.4783, Dev Precision Macro = 0.4584, Dev Recall Macro = 0.4053, Dev Accuracy = 0.5621
+2025-04-05 17:23:20,718 [INFO] Saved new best model with F1 Macro: 0.3750
+2025-04-05 17:23:48,788 [INFO] Epoch 45/2000: Train Loss = 0.7037, Dev Loss = 0.6871, Dev F1 Macro = 0.3857, Dev F1 Weighted = 0.4838, Dev Precision Macro = 0.4702, Dev Recall Macro = 0.4162, Dev Accuracy = 0.5648
+2025-04-05 17:23:52,458 [INFO] Saved new best model with F1 Macro: 0.3857
+2025-04-05 17:24:20,604 [INFO] Epoch 46/2000: Train Loss = 0.7019, Dev Loss = 0.6861, Dev F1 Macro = 0.3938, Dev F1 Weighted = 0.4874, Dev Precision Macro = 0.4730, Dev Recall Macro = 0.4227, Dev Accuracy = 0.5637
+2025-04-05 17:24:23,524 [INFO] Saved new best model with F1 Macro: 0.3938
+2025-04-05 17:24:51,749 [INFO] Epoch 47/2000: Train Loss = 0.7013, Dev Loss = 0.6851, Dev F1 Macro = 0.3993, Dev F1 Weighted = 0.4912, Dev Precision Macro = 0.4824, Dev Recall Macro = 0.4285, Dev Accuracy = 0.5664
+2025-04-05 17:24:54,492 [INFO] Saved new best model with F1 Macro: 0.3993
+2025-04-05 17:25:22,557 [INFO] Epoch 48/2000: Train Loss = 0.6996, Dev Loss = 0.6842, Dev F1 Macro = 0.4041, Dev F1 Weighted = 0.4943, Dev Precision Macro = 0.4776, Dev Recall Macro = 0.4307, Dev Accuracy = 0.5648
+2025-04-05 17:25:25,331 [INFO] Saved new best model with F1 Macro: 0.4041
+2025-04-05 17:25:53,388 [INFO] Epoch 49/2000: Train Loss = 0.6988, Dev Loss = 0.6834, Dev F1 Macro = 0.4057, Dev F1 Weighted = 0.4952, Dev Precision Macro = 0.4820, Dev Recall Macro = 0.4353, Dev Accuracy = 0.5659
+2025-04-05 17:25:55,885 [INFO] Saved new best model with F1 Macro: 0.4057
+2025-04-05 17:26:23,990 [INFO] Epoch 50/2000: Train Loss = 0.6976, Dev Loss = 0.6825, Dev F1 Macro = 0.4069, Dev F1 Weighted = 0.4961, Dev Precision Macro = 0.4731, Dev Recall Macro = 0.4354, Dev Accuracy = 0.5632
+2025-04-05 17:26:26,709 [INFO] Saved new best model with F1 Macro: 0.4069
+2025-04-05 17:26:54,755 [INFO] Epoch 51/2000: Train Loss = 0.6966, Dev Loss = 0.6818, Dev F1 Macro = 0.4070, Dev F1 Weighted = 0.4940, Dev Precision Macro = 0.4555, Dev Recall Macro = 0.4362, Dev Accuracy = 0.5562
+2025-04-05 17:26:57,837 [INFO] Saved new best model with F1 Macro: 0.4070
+2025-04-05 17:27:25,896 [INFO] Epoch 52/2000: Train Loss = 0.6949, Dev Loss = 0.6813, Dev F1 Macro = 0.4116, Dev F1 Weighted = 0.4972, Dev Precision Macro = 0.4608, Dev Recall Macro = 0.4401, Dev Accuracy = 0.5573
+2025-04-05 17:27:28,602 [INFO] Saved new best model with F1 Macro: 0.4116
+2025-04-05 17:27:56,734 [INFO] Epoch 53/2000: Train Loss = 0.6940, Dev Loss = 0.6806, Dev F1 Macro = 0.4117, Dev F1 Weighted = 0.4975, Dev Precision Macro = 0.4579, Dev Recall Macro = 0.4401, Dev Accuracy = 0.5573
+2025-04-05 17:27:59,536 [INFO] Saved new best model with F1 Macro: 0.4117
+2025-04-05 17:28:27,638 [INFO] Epoch 54/2000: Train Loss = 0.6923, Dev Loss = 0.6800, Dev F1 Macro = 0.4180, Dev F1 Weighted = 0.5025, Dev Precision Macro = 0.4617, Dev Recall Macro = 0.4455, Dev Accuracy = 0.5584
+2025-04-05 17:28:30,174 [INFO] Saved new best model with F1 Macro: 0.4180
+2025-04-05 17:28:58,253 [INFO] Epoch 55/2000: Train Loss = 0.6915, Dev Loss = 0.6797, Dev F1 Macro = 0.4175, Dev F1 Weighted = 0.5022, Dev Precision Macro = 0.4582, Dev Recall Macro = 0.4441, Dev Accuracy = 0.5562
+2025-04-05 17:29:26,277 [INFO] Epoch 56/2000: Train Loss = 0.6905, Dev Loss = 0.6789, Dev F1 Macro = 0.4205, Dev F1 Weighted = 0.5026, Dev Precision Macro = 0.4555, Dev Recall Macro = 0.4485, Dev Accuracy = 0.5546
+2025-04-05 17:29:29,131 [INFO] Saved new best model with F1 Macro: 0.4205
+2025-04-05 17:29:57,187 [INFO] Epoch 57/2000: Train Loss = 0.6874, Dev Loss = 0.6787, Dev F1 Macro = 0.4184, Dev F1 Weighted = 0.5000, Dev Precision Macro = 0.4476, Dev Recall Macro = 0.4452, Dev Accuracy = 0.5492
+2025-04-05 17:30:25,290 [INFO] Epoch 58/2000: Train Loss = 0.6883, Dev Loss = 0.6785, Dev F1 Macro = 0.4203, Dev F1 Weighted = 0.5001, Dev Precision Macro = 0.4447, Dev Recall Macro = 0.4445, Dev Accuracy = 0.5455
+2025-04-05 17:30:53,272 [INFO] Epoch 59/2000: Train Loss = 0.6869, Dev Loss = 0.6779, Dev F1 Macro = 0.4200, Dev F1 Weighted = 0.4989, Dev Precision Macro = 0.4426, Dev Recall Macro = 0.4463, Dev Accuracy = 0.5449
+2025-04-05 17:31:21,277 [INFO] Epoch 60/2000: Train Loss = 0.6845, Dev Loss = 0.6779, Dev F1 Macro = 0.4275, Dev F1 Weighted = 0.5037, Dev Precision Macro = 0.4452, Dev Recall Macro = 0.4489, Dev Accuracy = 0.5433
+2025-04-05 17:31:24,158 [INFO] Saved new best model with F1 Macro: 0.4275
+2025-04-05 17:31:52,307 [INFO] Epoch 61/2000: Train Loss = 0.6829, Dev Loss = 0.6775, Dev F1 Macro = 0.4249, Dev F1 Weighted = 0.5007, Dev Precision Macro = 0.4401, Dev Recall Macro = 0.4471, Dev Accuracy = 0.5401
+2025-04-05 17:32:20,362 [INFO] Epoch 62/2000: Train Loss = 0.6820, Dev Loss = 0.6772, Dev F1 Macro = 0.4261, Dev F1 Weighted = 0.5015, Dev Precision Macro = 0.4422, Dev Recall Macro = 0.4482, Dev Accuracy = 0.5385
+2025-04-05 17:32:48,417 [INFO] Epoch 63/2000: Train Loss = 0.6813, Dev Loss = 0.6770, Dev F1 Macro = 0.4273, Dev F1 Weighted = 0.5021, Dev Precision Macro = 0.4387, Dev Recall Macro = 0.4459, Dev Accuracy = 0.5342
+2025-04-05 17:33:16,467 [INFO] Epoch 64/2000: Train Loss = 0.6807, Dev Loss = 0.6767, Dev F1 Macro = 0.4253, Dev F1 Weighted = 0.5000, Dev Precision Macro = 0.4361, Dev Recall Macro = 0.4443, Dev Accuracy = 0.5325
+2025-04-05 17:33:44,543 [INFO] Epoch 65/2000: Train Loss = 0.6804, Dev Loss = 0.6765, Dev F1 Macro = 0.4253, Dev F1 Weighted = 0.5007, Dev Precision Macro = 0.4367, Dev Recall Macro = 0.4442, Dev Accuracy = 0.5336
+2025-04-05 17:34:12,611 [INFO] Epoch 66/2000: Train Loss = 0.6788, Dev Loss = 0.6763, Dev F1 Macro = 0.4306, Dev F1 Weighted = 0.5034, Dev Precision Macro = 0.4387, Dev Recall Macro = 0.4486, Dev Accuracy = 0.5331
+2025-04-05 17:34:16,245 [INFO] Saved new best model with F1 Macro: 0.4306
+2025-04-05 17:34:44,331 [INFO] Epoch 67/2000: Train Loss = 0.6778, Dev Loss = 0.6763, Dev F1 Macro = 0.4299, Dev F1 Weighted = 0.5032, Dev Precision Macro = 0.4385, Dev Recall Macro = 0.4478, Dev Accuracy = 0.5336
+2025-04-05 17:35:12,330 [INFO] Epoch 68/2000: Train Loss = 0.6763, Dev Loss = 0.6760, Dev F1 Macro = 0.4320, Dev F1 Weighted = 0.5048, Dev Precision Macro = 0.4398, Dev Recall Macro = 0.4495, Dev Accuracy = 0.5336
+2025-04-05 17:35:14,713 [INFO] Saved new best model with F1 Macro: 0.4320
+2025-04-05 17:35:42,926 [INFO] Epoch 69/2000: Train Loss = 0.6753, Dev Loss = 0.6749, Dev F1 Macro = 0.4413, Dev F1 Weighted = 0.5109, Dev Precision Macro = 0.4477, Dev Recall Macro = 0.4596, Dev Accuracy = 0.5363
+2025-04-05 17:35:45,536 [INFO] Saved new best model with F1 Macro: 0.4413
+2025-04-05 17:36:13,537 [INFO] Epoch 70/2000: Train Loss = 0.6742, Dev Loss = 0.6748, Dev F1 Macro = 0.4386, Dev F1 Weighted = 0.5093, Dev Precision Macro = 0.4446, Dev Recall Macro = 0.4555, Dev Accuracy = 0.5347
+2025-04-05 17:36:41,512 [INFO] Epoch 71/2000: Train Loss = 0.6733, Dev Loss = 0.6746, Dev F1 Macro = 0.4388, Dev F1 Weighted = 0.5091, Dev Precision Macro = 0.4442, Dev Recall Macro = 0.4560, Dev Accuracy = 0.5342
+2025-04-05 17:37:09,499 [INFO] Epoch 72/2000: Train Loss = 0.6711, Dev Loss = 0.6740, Dev F1 Macro = 0.4422, Dev F1 Weighted = 0.5109, Dev Precision Macro = 0.4463, Dev Recall Macro = 0.4588, Dev Accuracy = 0.5325
+2025-04-05 17:37:12,072 [INFO] Saved new best model with F1 Macro: 0.4422
+2025-04-05 17:37:40,173 [INFO] Epoch 73/2000: Train Loss = 0.6698, Dev Loss = 0.6739, Dev F1 Macro = 0.4340, Dev F1 Weighted = 0.5059, Dev Precision Macro = 0.4384, Dev Recall Macro = 0.4486, Dev Accuracy = 0.5293
+2025-04-05 17:38:08,164 [INFO] Epoch 74/2000: Train Loss = 0.6683, Dev Loss = 0.6738, Dev F1 Macro = 0.4371, Dev F1 Weighted = 0.5089, Dev Precision Macro = 0.4410, Dev Recall Macro = 0.4497, Dev Accuracy = 0.5304
+2025-04-05 17:38:36,195 [INFO] Epoch 75/2000: Train Loss = 0.6673, Dev Loss = 0.6737, Dev F1 Macro = 0.4354, Dev F1 Weighted = 0.5079, Dev Precision Macro = 0.4393, Dev Recall Macro = 0.4487, Dev Accuracy = 0.5299
+2025-04-05 17:39:04,084 [INFO] Epoch 76/2000: Train Loss = 0.6667, Dev Loss = 0.6735, Dev F1 Macro = 0.4384, Dev F1 Weighted = 0.5090, Dev Precision Macro = 0.4414, Dev Recall Macro = 0.4512, Dev Accuracy = 0.5282
+2025-04-05 17:39:32,057 [INFO] Epoch 77/2000: Train Loss = 0.6641, Dev Loss = 0.6727, Dev F1 Macro = 0.4375, Dev F1 Weighted = 0.5089, Dev Precision Macro = 0.4407, Dev Recall Macro = 0.4509, Dev Accuracy = 0.5293
+2025-04-05 17:40:00,042 [INFO] Epoch 78/2000: Train Loss = 0.6635, Dev Loss = 0.6730, Dev F1 Macro = 0.4401, Dev F1 Weighted = 0.5108, Dev Precision Macro = 0.4429, Dev Recall Macro = 0.4525, Dev Accuracy = 0.5304
+2025-04-05 17:40:28,016 [INFO] Epoch 79/2000: Train Loss = 0.6619, Dev Loss = 0.6727, Dev F1 Macro = 0.4450, Dev F1 Weighted = 0.5134, Dev Precision Macro = 0.4460, Dev Recall Macro = 0.4559, Dev Accuracy = 0.5282
+2025-04-05 17:40:31,715 [INFO] Saved new best model with F1 Macro: 0.4450
+2025-04-05 17:40:59,865 [INFO] Epoch 80/2000: Train Loss = 0.6612, Dev Loss = 0.6723, Dev F1 Macro = 0.4423, Dev F1 Weighted = 0.5135, Dev Precision Macro = 0.4450, Dev Recall Macro = 0.4540, Dev Accuracy = 0.5315
+2025-04-05 17:41:27,784 [INFO] Epoch 81/2000: Train Loss = 0.6615, Dev Loss = 0.6724, Dev F1 Macro = 0.4446, Dev F1 Weighted = 0.5157, Dev Precision Macro = 0.4476, Dev Recall Macro = 0.4552, Dev Accuracy = 0.5342
+2025-04-05 17:41:55,781 [INFO] Epoch 82/2000: Train Loss = 0.6597, Dev Loss = 0.6717, Dev F1 Macro = 0.4462, Dev F1 Weighted = 0.5156, Dev Precision Macro = 0.4472, Dev Recall Macro = 0.4567, Dev Accuracy = 0.5304
+2025-04-05 17:41:57,955 [INFO] Saved new best model with F1 Macro: 0.4462
+2025-04-05 17:42:25,993 [INFO] Epoch 83/2000: Train Loss = 0.6583, Dev Loss = 0.6720, Dev F1 Macro = 0.4442, Dev F1 Weighted = 0.5138, Dev Precision Macro = 0.4451, Dev Recall Macro = 0.4556, Dev Accuracy = 0.5299
+2025-04-05 17:42:53,916 [INFO] Epoch 84/2000: Train Loss = 0.6582, Dev Loss = 0.6712, Dev F1 Macro = 0.4455, Dev F1 Weighted = 0.5114, Dev Precision Macro = 0.4432, Dev Recall Macro = 0.4575, Dev Accuracy = 0.5223
+2025-04-05 17:43:21,873 [INFO] Epoch 85/2000: Train Loss = 0.6563, Dev Loss = 0.6719, Dev F1 Macro = 0.4407, Dev F1 Weighted = 0.5111, Dev Precision Macro = 0.4408, Dev Recall Macro = 0.4488, Dev Accuracy = 0.5239
+2025-04-05 17:43:49,845 [INFO] Epoch 86/2000: Train Loss = 0.6543, Dev Loss = 0.6717, Dev F1 Macro = 0.4414, Dev F1 Weighted = 0.5141, Dev Precision Macro = 0.4429, Dev Recall Macro = 0.4499, Dev Accuracy = 0.5293
+2025-04-05 17:44:17,825 [INFO] Epoch 87/2000: Train Loss = 0.6525, Dev Loss = 0.6709, Dev F1 Macro = 0.4451, Dev F1 Weighted = 0.5141, Dev Precision Macro = 0.4448, Dev Recall Macro = 0.4554, Dev Accuracy = 0.5272
+2025-04-05 17:44:45,815 [INFO] Epoch 88/2000: Train Loss = 0.6519, Dev Loss = 0.6712, Dev F1 Macro = 0.4435, Dev F1 Weighted = 0.5129, Dev Precision Macro = 0.4431, Dev Recall Macro = 0.4533, Dev Accuracy = 0.5256
+2025-04-05 17:45:13,793 [INFO] Epoch 89/2000: Train Loss = 0.6517, Dev Loss = 0.6712, Dev F1 Macro = 0.4431, Dev F1 Weighted = 0.5124, Dev Precision Macro = 0.4421, Dev Recall Macro = 0.4517, Dev Accuracy = 0.5234
+2025-04-05 17:45:41,783 [INFO] Epoch 90/2000: Train Loss = 0.6496, Dev Loss = 0.6707, Dev F1 Macro = 0.4442, Dev F1 Weighted = 0.5123, Dev Precision Macro = 0.4422, Dev Recall Macro = 0.4528, Dev Accuracy = 0.5207
+2025-04-05 17:46:09,896 [INFO] Epoch 91/2000: Train Loss = 0.6471, Dev Loss = 0.6709, Dev F1 Macro = 0.4438, Dev F1 Weighted = 0.5122, Dev Precision Macro = 0.4426, Dev Recall Macro = 0.4529, Dev Accuracy = 0.5234
+2025-04-05 17:46:37,828 [INFO] Epoch 92/2000: Train Loss = 0.6477, Dev Loss = 0.6711, Dev F1 Macro = 0.4444, Dev F1 Weighted = 0.5135, Dev Precision Macro = 0.4436, Dev Recall Macro = 0.4527, Dev Accuracy = 0.5250
+2025-04-05 17:47:05,835 [INFO] Epoch 93/2000: Train Loss = 0.6446, Dev Loss = 0.6711, Dev F1 Macro = 0.4438, Dev F1 Weighted = 0.5132, Dev Precision Macro = 0.4426, Dev Recall Macro = 0.4533, Dev Accuracy = 0.5250
+2025-04-05 17:47:33,823 [INFO] Epoch 94/2000: Train Loss = 0.6426, Dev Loss = 0.6720, Dev F1 Macro = 0.4417, Dev F1 Weighted = 0.5120, Dev Precision Macro = 0.4430, Dev Recall Macro = 0.4489, Dev Accuracy = 0.5266
+2025-04-05 17:48:01,810 [INFO] Epoch 95/2000: Train Loss = 0.6416, Dev Loss = 0.6715, Dev F1 Macro = 0.4450, Dev F1 Weighted = 0.5148, Dev Precision Macro = 0.4456, Dev Recall Macro = 0.4533, Dev Accuracy = 0.5293
+2025-04-05 17:48:29,825 [INFO] Epoch 96/2000: Train Loss = 0.6404, Dev Loss = 0.6696, Dev F1 Macro = 0.4524, Dev F1 Weighted = 0.5166, Dev Precision Macro = 0.4489, Dev Recall Macro = 0.4634, Dev Accuracy = 0.5229
+2025-04-05 17:48:32,101 [INFO] Saved new best model with F1 Macro: 0.4524
+2025-04-05 17:49:00,192 [INFO] Epoch 97/2000: Train Loss = 0.6427, Dev Loss = 0.6706, Dev F1 Macro = 0.4522, Dev F1 Weighted = 0.5193, Dev Precision Macro = 0.4509, Dev Recall Macro = 0.4606, Dev Accuracy = 0.5288
+2025-04-05 17:49:28,188 [INFO] Epoch 98/2000: Train Loss = 0.6390, Dev Loss = 0.6699, Dev F1 Macro = 0.4562, Dev F1 Weighted = 0.5226, Dev Precision Macro = 0.4552, Dev Recall Macro = 0.4647, Dev Accuracy = 0.5325
+2025-04-05 17:49:32,137 [INFO] Saved new best model with F1 Macro: 0.4562
+2025-04-05 17:50:00,183 [INFO] Epoch 99/2000: Train Loss = 0.6368, Dev Loss = 0.6701, Dev F1 Macro = 0.4520, Dev F1 Weighted = 0.5190, Dev Precision Macro = 0.4504, Dev Recall Macro = 0.4615, Dev Accuracy = 0.5282
+2025-04-05 17:50:28,138 [INFO] Epoch 100/2000: Train Loss = 0.6369, Dev Loss = 0.6707, Dev F1 Macro = 0.4566, Dev F1 Weighted = 0.5210, Dev Precision Macro = 0.4544, Dev Recall Macro = 0.4644, Dev Accuracy = 0.5282
+2025-04-05 17:50:30,716 [INFO] Saved new best model with F1 Macro: 0.4566
+2025-04-05 17:50:58,714 [INFO] Epoch 101/2000: Train Loss = 0.6345, Dev Loss = 0.6698, Dev F1 Macro = 0.4595, Dev F1 Weighted = 0.5226, Dev Precision Macro = 0.4560, Dev Recall Macro = 0.4701, Dev Accuracy = 0.5282
+2025-04-05 17:51:01,210 [INFO] Saved new best model with F1 Macro: 0.4595
+2025-04-05 17:51:29,217 [INFO] Epoch 102/2000: Train Loss = 0.6321, Dev Loss = 0.6701, Dev F1 Macro = 0.4586, Dev F1 Weighted = 0.5230, Dev Precision Macro = 0.4559, Dev Recall Macro = 0.4686, Dev Accuracy = 0.5304
+2025-04-05 17:51:57,343 [INFO] Epoch 103/2000: Train Loss = 0.6324, Dev Loss = 0.6700, Dev F1 Macro = 0.4579, Dev F1 Weighted = 0.5210, Dev Precision Macro = 0.4547, Dev Recall Macro = 0.4676, Dev Accuracy = 0.5272
+2025-04-05 17:52:25,310 [INFO] Epoch 104/2000: Train Loss = 0.6302, Dev Loss = 0.6708, Dev F1 Macro = 0.4589, Dev F1 Weighted = 0.5222, Dev Precision Macro = 0.4560, Dev Recall Macro = 0.4674, Dev Accuracy = 0.5288
+2025-04-05 17:52:53,337 [INFO] Epoch 105/2000: Train Loss = 0.6291, Dev Loss = 0.6711, Dev F1 Macro = 0.4564, Dev F1 Weighted = 0.5210, Dev Precision Macro = 0.4546, Dev Recall Macro = 0.4641, Dev Accuracy = 0.5293
+2025-04-05 17:53:21,287 [INFO] Epoch 106/2000: Train Loss = 0.6292, Dev Loss = 0.6710, Dev F1 Macro = 0.4579, Dev F1 Weighted = 0.5222, Dev Precision Macro = 0.4557, Dev Recall Macro = 0.4658, Dev Accuracy = 0.5299
+2025-04-05 17:53:49,249 [INFO] Epoch 107/2000: Train Loss = 0.6270, Dev Loss = 0.6711, Dev F1 Macro = 0.4610, Dev F1 Weighted = 0.5226, Dev Precision Macro = 0.4576, Dev Recall Macro = 0.4714, Dev Accuracy = 0.5299
+2025-04-05 17:53:52,729 [INFO] Saved new best model with F1 Macro: 0.4610
+2025-04-05 17:54:20,805 [INFO] Epoch 108/2000: Train Loss = 0.6244, Dev Loss = 0.6709, Dev F1 Macro = 0.4644, Dev F1 Weighted = 0.5230, Dev Precision Macro = 0.4591, Dev Recall Macro = 0.4765, Dev Accuracy = 0.5256
+2025-04-05 17:54:23,589 [INFO] Saved new best model with F1 Macro: 0.4644
+2025-04-05 17:54:51,583 [INFO] Epoch 109/2000: Train Loss = 0.6222, Dev Loss = 0.6723, Dev F1 Macro = 0.4585, Dev F1 Weighted = 0.5223, Dev Precision Macro = 0.4566, Dev Recall Macro = 0.4658, Dev Accuracy = 0.5309
+2025-04-05 17:55:19,507 [INFO] Epoch 110/2000: Train Loss = 0.6229, Dev Loss = 0.6729, Dev F1 Macro = 0.4534, Dev F1 Weighted = 0.5190, Dev Precision Macro = 0.4524, Dev Recall Macro = 0.4606, Dev Accuracy = 0.5293
+2025-04-05 17:55:47,451 [INFO] Epoch 111/2000: Train Loss = 0.6194, Dev Loss = 0.6733, Dev F1 Macro = 0.4515, Dev F1 Weighted = 0.5176, Dev Precision Macro = 0.4501, Dev Recall Macro = 0.4585, Dev Accuracy = 0.5277
+2025-04-05 17:56:15,408 [INFO] Epoch 112/2000: Train Loss = 0.6195, Dev Loss = 0.6730, Dev F1 Macro = 0.4567, Dev F1 Weighted = 0.5212, Dev Precision Macro = 0.4547, Dev Recall Macro = 0.4645, Dev Accuracy = 0.5299
+2025-04-05 17:56:43,356 [INFO] Epoch 113/2000: Train Loss = 0.6171, Dev Loss = 0.6727, Dev F1 Macro = 0.4594, Dev F1 Weighted = 0.5229, Dev Precision Macro = 0.4570, Dev Recall Macro = 0.4678, Dev Accuracy = 0.5315
+2025-04-05 17:57:11,476 [INFO] Epoch 114/2000: Train Loss = 0.6148, Dev Loss = 0.6742, Dev F1 Macro = 0.4585, Dev F1 Weighted = 0.5230, Dev Precision Macro = 0.4561, Dev Recall Macro = 0.4644, Dev Accuracy = 0.5288
+2025-04-05 17:57:39,395 [INFO] Epoch 115/2000: Train Loss = 0.6141, Dev Loss = 0.6751, Dev F1 Macro = 0.4471, Dev F1 Weighted = 0.5155, Dev Precision Macro = 0.4469, Dev Recall Macro = 0.4552, Dev Accuracy = 0.5293
+2025-04-05 17:58:07,395 [INFO] Epoch 116/2000: Train Loss = 0.6141, Dev Loss = 0.6736, Dev F1 Macro = 0.4648, Dev F1 Weighted = 0.5273, Dev Precision Macro = 0.4615, Dev Recall Macro = 0.4728, Dev Accuracy = 0.5331
+2025-04-05 17:58:10,681 [INFO] Saved new best model with F1 Macro: 0.4648
+2025-04-05 17:58:10,682 [INFO] Early stopping triggered after 116 epochs

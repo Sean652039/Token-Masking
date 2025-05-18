@@ -1,9 +1,20 @@
-lid_hineng/
-lid_spaeng/
-lid_nepeng/
+language_identification/lid_spaeng/
+language_identification/lid_nepeng/
+language_identification/outputs/
 
-outputs/
-outputs.zip
+language_identification_llm/lid_nepeng/
+language_identification_llm/lid_spaeng/
+language_identification_llm/outputs/
+
+parts_of_speech_tagging/pos_hineng/
+parts_of_speech_tagging/pos_spaeng/
+parts_of_speech_tagging/outputs/
+
+sentiment_analysis/sa_spaeng/
+sentiment_analysis/outputs/
+
+sentiment_analysis_llm/sa_spaeng/
+sentiment_analysis_llm/outputs/
 
 __pycache__/
 

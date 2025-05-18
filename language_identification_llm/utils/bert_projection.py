@@ -3,8 +3,7 @@ import torch
 from transformers import AutoTokenizer, AutoModelForTokenClassification
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-from CS_Dataset import CSDataset
+from language_identification.CS_Dataset import CSDataset
 
 
 def extract_logits(model, dataset, device):

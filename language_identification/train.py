@@ -345,7 +345,7 @@ if __name__ == "__main__":
         'seed': 2024
     }
 
-    mask_probabilities = [i * 0.1 for i in range(6)]  #0.0, 0.1, ..., 0.5, can modify as needed
+    mask_probabilities = [i * 0.1 for i in range(1, 6)]  #0.0, 0.1, ..., 0.5, can modify as needed
     test_results = {}
 
     for mask_prob in mask_probabilities:

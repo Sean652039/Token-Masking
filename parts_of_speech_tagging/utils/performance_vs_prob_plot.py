@@ -10,8 +10,8 @@ def parse_logs(log_file):
     best_metrics = {}
     f1_macro_pattern = re.compile(r"F1 Macro: (\d+\.\d+)")
     metrics_pattern = re.compile(
-        r"Dev Loss = (\d+\.\d+), Dev F1 Macro = (\d+\.\d+), Dev F1 Weighted = (\d+\.\d+)"
-        r"Dev Precision Macro = (\d+\.\d+), Dev Recall Macro = (\d+\.\d+)"
+        r"Dev Loss = (\d+\.\d+), Dev F1 Macro = (\d+\.\d+), Dev F1 Weighted = (\d+\.\d+), "
+        r"Dev Precision Macro = (\d+\.\d+), Dev Recall Macro = (\d+\.\d+), "
         r"Dev Accuracy = (\d+\.\d+)"
     )
     test_metrics_pattern = re.compile(r"F1 Macro = (\d+\.\d+), F1 Weighted = (\d+\.\d+)")
@@ -70,9 +70,10 @@ def aggregate_metrics(log_dir):
             aggregated_metrics.update(file_metrics)
     return aggregated_metrics
 
+
 def plot_f1_metrics(best_metrics, output_dir):
     """
-    Plots F1 Macro and F1 Weighted metrics on the same plot.
+    Plots F1 Macro and F1 Weighted metrics with improved academic styling.
     """
     probabilities = sorted(best_metrics.keys())
     f1_macro_values = [best_metrics[prob]["F1 Macro"] for prob in probabilities]
@@ -80,51 +81,100 @@ def plot_f1_metrics(best_metrics, output_dir):
 
     test_f1_macro_values = [best_metrics[prob]["Test F1 Macro"] for prob in probabilities]
     test_f1_weighted_values = [best_metrics[prob]["Test F1 Weighted"] for prob in probabilities]
-    
+
     os.makedirs(output_dir, exist_ok=True)
 
+    # Academic styling
     plt.rcParams.update({
         'font.family': 'serif',
         'font.serif': ['Times New Roman'],
-        'axes.titlesize': 14,
-        'axes.labelsize': 12,
-        'xtick.labelsize': 10,
-        'ytick.labelsize': 10,
-        'legend.fontsize': 10,
-        'axes.linewidth': 1.5,
-        'grid.alpha': 0.3
+        'font.size': 12,
+        'axes.titlesize': 16,
+        'axes.labelsize': 14,
+        'xtick.labelsize': 12,
+        'ytick.labelsize': 12,
+        'legend.fontsize': 11,
+        'axes.linewidth': 1.2,
+        'grid.alpha': 0.3,
+        'axes.grid': True,
+        'axes.axisbelow': True,
+        'text.usetex': False  # Set to True if LaTeX is available
     })
 
-    plt.figure(figsize=(8, 6))
-    plt.plot(probabilities, f1_macro_values, marker='o', label="F1 Macro", color="blue", markersize=8, linestyle='-',
-             linewidth=2)
-    plt.plot(probabilities, f1_weighted_values, marker='s', label="F1 Weighted", color="green", markersize=8,
-             linestyle='-', linewidth=2)
+    # Set color scheme (colorblind-friendly)
+    blue = '#0173B2'
+    green = '#029E73'
+    red = '#D55E00'
+    purple = '#CC79A7'
 
-    plt.axhline(y=f1_macro_values[0], color='red', linestyle='--', linewidth=1, label="Mask Probability = 0.0")
-    plt.axhline(y=f1_weighted_values[0], color='purple', linestyle='--', linewidth=1, label="Mask Probability = 0.0")
+    # Development F1 Scores Plot
+    fig, ax = plt.subplots(figsize=(7.5, 6))
 
-    plt.title("Dev F1 Scores vs. Mask Probability", fontsize=16)
-    plt.xlabel("Mask Probability", fontsize=14)
-    plt.ylabel("F1 Score", fontsize=14)
-    plt.grid(True, which='both', linestyle='--', linewidth=0.5)
-    plt.legend(loc='upper right', frameon=False)
-    plt.savefig(os.path.join(output_dir, "f1_scores_vs_mask_probability.png"))
+    # Plot lines with improved styling
+    ax.plot(probabilities, f1_macro_values, marker='o', label="F1 Macro",
+            color=blue, markersize=7, linestyle='-', linewidth=2)
+    ax.plot(probabilities, f1_weighted_values, marker='s', label="F1 Weighted",
+            color=green, markersize=7, linestyle='-', linewidth=2)
+
+    # Reference lines for baseline (p=0.0)
+    ax.axhline(y=f1_macro_values[0], color=red, linestyle='--', linewidth=1.2,
+               label="Baseline F1 Macro (p=0.0)")
+    ax.axhline(y=f1_weighted_values[0], color=purple, linestyle='--', linewidth=1.2,
+               label="Baseline F1 Weighted (p=0.0)")
+
+    # Set better y-axis limits to focus on the data range
+    y_min = min(min(f1_macro_values), min(f1_weighted_values)) * 0.995
+    y_max = max(max(f1_macro_values), max(f1_weighted_values)) * 1.005
+    ax.set_ylim(y_min, y_max)
+
+    # Add minor grid lines
+    ax.grid(True, which='major', linestyle='-', linewidth=0.5)
+    ax.grid(True, which='minor', linestyle=':', linewidth=0.5, alpha=0.7)
+    ax.minorticks_on()
+
+    # Improve title and labels
+    ax.set_title("Development Set F1 Scores vs. Mask Probability", fontweight='bold')
+    ax.set_xlabel("Mask Probability (p)")
+    ax.set_ylabel("F1 Score")
+
+    # Better legend positioning and formatting
+    ax.legend(loc='best', frameon=True, framealpha=0.9, edgecolor='lightgray')
+
+    # Tighten layout and save
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_dir, "f1_scores_vs_mask_probability.png"), dpi=300)
     plt.close()
 
-    plt.figure(figsize=(8, 6))
-    plt.plot(probabilities, test_f1_macro_values, marker='o', label="Test F1 Macro", color="blue", markersize=8, linestyle='-',
-             linewidth=2)
-    plt.plot(probabilities, test_f1_weighted_values, marker='s', label="Test F1 Weighted", color="green", markersize=8,
-                linestyle='-', linewidth=2)
-    plt.axhline(y=test_f1_macro_values[0], color='red', linestyle='--', linewidth=1, label="Mask Probability = 0.0")
-    plt.axhline(y=test_f1_weighted_values[0], color='purple', linestyle='--', linewidth=1, label="Mask Probability = 0.0")
-    plt.title("Test F1 Scores vs. Mask Probability", fontsize=16)
-    plt.xlabel("Mask Probability", fontsize=14)
-    plt.ylabel("F1 Score", fontsize=14)
-    plt.grid(True, which='both', linestyle='--', linewidth=0.5)
-    plt.legend(loc='upper right', frameon=False)
-    plt.savefig(os.path.join(output_dir, "test_f1_scores_vs_mask_probability.png"))
+    # Similar improvements for the test plot
+    fig, ax = plt.subplots(figsize=(7.5, 6))
+
+    ax.plot(probabilities, test_f1_macro_values, marker='o', label="F1 Macro",
+            color=blue, markersize=7, linestyle='-', linewidth=2)
+    ax.plot(probabilities, test_f1_weighted_values, marker='s', label="F1 Weighted",
+            color=green, markersize=7, linestyle='-', linewidth=2)
+
+    ax.axhline(y=test_f1_macro_values[0], color=red, linestyle='--', linewidth=1.2,
+               label="Baseline F1 Macro (p=0.0)")
+    ax.axhline(y=test_f1_weighted_values[0], color=purple, linestyle='--', linewidth=1.2,
+               label="Baseline F1 Weighted (p=0.0)")
+
+    # Set better y-axis limits
+    y_min = min(min(test_f1_macro_values), min(test_f1_weighted_values)) * 0.995
+    y_max = max(max(test_f1_macro_values), max(test_f1_weighted_values)) * 1.005
+    ax.set_ylim(y_min, y_max)
+
+    ax.grid(True, which='major', linestyle='-', linewidth=0.5)
+    ax.grid(True, which='minor', linestyle=':', linewidth=0.5, alpha=0.7)
+    ax.minorticks_on()
+
+    ax.set_title("Test Set F1 Scores vs. Mask Probability", fontweight='bold')
+    ax.set_xlabel("Mask Probability (p)")
+    ax.set_ylabel("F1 Score")
+
+    ax.legend(loc='best', frameon=True, framealpha=0.9, edgecolor='lightgray')
+
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_dir, "test_f1_scores_vs_mask_probability.png"), dpi=300)
     plt.close()
 
 def plot_individual_metrics(best_metrics, output_dir):

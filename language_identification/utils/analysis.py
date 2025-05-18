@@ -1,4 +1,4 @@
-from CS_Dataset import CSDataset
+from language_identification.CS_Dataset import CSDataset
 from transformers import AutoTokenizer
 
 import matplotlib.pyplot as plt
@@ -46,5 +46,5 @@ if __name__ == "__main__":
     plt.title("Test dataset label (NEP-ENG) distribution")
     plt.xticks(rotation=90)
     plt.tight_layout()
-    plt.savefig("../plot/label_distribution.png")
+    plt.savefig("../plots/label_distribution.png")
     plt.show()
