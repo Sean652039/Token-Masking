@@ -47,3 +47,22 @@ Run the training script:
 python train.py
 ```
 
+## Citation
+
+If you find this work useful, please consider citing:
+
+```bibtex
+@misc{xu2025tokenmaskingimprovestransformerbased,
+      title={Token Masking Improves Transformer-Based Text Classification}, 
+      author={Xianglong Xu and John Bowen and Rojin Taheri},
+      year={2025},
+      eprint={2505.11746},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2505.11746}, 
+}
+```
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
